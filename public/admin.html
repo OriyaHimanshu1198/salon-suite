@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Salon Suite — Management</title>
+  <meta name="robots" content="noindex">
+  <link rel="stylesheet" href="/css/admin.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%234a2340'/><text x='50' y='68' font-size='54' font-family='Georgia' text-anchor='middle' fill='%23e6d3b3'>L</text></svg>">
+</head>
+<body>
+
+  <div class="login-screen" id="loginScreen">
+    <form class="login-card" id="loginForm">
+      <div class="brand-mark">L</div>
+      <h1>Salon Suite</h1>
+      <p class="sub">Sign in to the diary, rota and client book.</p>
+      <div class="field" style="margin-bottom:.8rem">
+        <label for="email">Email</label>
+        <input id="email" type="email" autocomplete="username" required value="owner@lumiere.test">
+      </div>
+      <div class="field" style="margin-bottom:1.1rem">
+        <label for="password">Password</label>
+        <input id="password" type="password" autocomplete="current-password" required value="salon123">
+      </div>
+      <button class="btn btn-block" id="loginBtn" type="submit">Sign in</button>
+      <div class="demo-hint">Demo accounts: owner@ · manager@ · reception@ · anya@ (staff) — all use <b>salon123</b></div>
+    </form>
+  </div>
+
+  <div class="shell hidden" id="app">
+    <aside class="sidebar" id="sidebar">
+      <div class="side-brand">
+        <span class="mark">L</span>
+        <span><b id="sideName">Lumière</b><small>Salon Suite</small></span>
+      </div>
+      <nav class="side-nav" id="sideNav">
+        <a href="#/dashboard" data-view="dashboard"><span class="ico">◧</span> Dashboard</a>
+        <a href="#/calendar" data-view="calendar"><span class="ico">▤</span> Calendar</a>
+        <a href="#/clients" data-view="clients"><span class="ico">☺</span> Clients</a>
+        <a href="#/packages" data-view="packages"><span class="ico">🎁</span> Packages</a>
+        <a href="#/services" data-view="services"><span class="ico">✂</span> Services</a>
+        <a href="#/team" data-view="team"><span class="ico">◍</span> Team</a>
+        <a href="#/rota" data-view="rota"><span class="ico">▦</span> Rota</a>
+        <a href="#/sales" data-view="sales"><span class="ico">£</span> Sales</a>
+        <a href="#/website" data-view="website"><span class="ico">✎</span> Website</a>
+        <a href="#/messages" data-view="messages"><span class="ico">✆</span> Messages <span class="count hidden" id="msgCount"></span></a>
+        <a href="#/reports" data-view="reports"><span class="ico">◔</span> Reports</a>
+        <a href="#/settings" data-view="settings"><span class="ico">⚙</span> Settings</a>
+        <a href="#/treatwell" data-view="treatwell"><span class="ico">⟳</span> Treatwell</a>
+      </nav>
+      <div class="side-foot">
+        <div class="who">
+          <span class="avatar" id="userAvatar">SO</span>
+          <span><b id="userName">Owner</b><br><span class="muted" style="color:rgba(255,255,255,.5);font-size:.7rem" id="userRole">owner</span></span>
+        </div>
+        <button id="logoutBtn">Sign out</button>
+      </div>
+    </aside>
+
+    <div class="main">
+      <div class="topbar">
+        <button class="btn btn-ghost btn-sm menu-btn" id="menuBtn" aria-label="Menu">☰</button>
+        <div>
+          <h1 id="pageTitle">Dashboard</h1>
+          <div class="sub" id="pageSub"></div>
+        </div>
+        <div class="topbar-actions" id="topbarActions"></div>
+      </div>
+      <div class="view" id="view"></div>
+    </div>
+  </div>
+
+  <div id="modalRoot"></div>
+  <div id="toasts"></div>
+
+  <script type="module" src="/js/admin.js"></script>
+</body>
+</html>
